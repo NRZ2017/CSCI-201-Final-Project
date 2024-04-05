@@ -18,9 +18,6 @@ export default function LoginForm() {
                 START STUDYING
             </Button>
         </Form>
-        <div className='Signup'>
-            New User? 
-        </div>
         </>
     )
 }
