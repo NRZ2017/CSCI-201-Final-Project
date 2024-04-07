@@ -5,6 +5,8 @@ export default function Home() {
          <div>
               <h1>Home</h1>
               <Link to="/">Login</Link>
+              <br></br>
+              <Link to="/StartSession">Start Session</Link>
          </div>
    )
 }
