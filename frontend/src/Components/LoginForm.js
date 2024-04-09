@@ -5,10 +5,11 @@ import './LoginForm.css';
 export default function LoginForm() {
     return (
         <>
-        <Form>
+        <Form className='fo'>
             <Form.Group className='mb-3' controlId='input-uname'>
-                <Form.Label>Username</Form.Label>
+                <Form.Label>Username</Form.Label> 
                 <Form.Control type='text' placeholder='Enter username' />
+                
             </Form.Group>
             <Form.Group className='mb-3' controlId='input-pwd'>
                 <Form.Label>Password</Form.Label>

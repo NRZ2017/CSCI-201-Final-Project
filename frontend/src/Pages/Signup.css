@@ -1,0 +1,20 @@
+#fname, #lname, #email, #username, #password {
+    width: 140%;
+}
+
+#topSign {
+    font-size: 100px;
+}
+
+.sup {
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: baseline;
+  min-height: 100vh;
+}
+
+#container {
+    margin-left: 0;
+}

@@ -1,7 +1,19 @@
 #input-uname {
-    width: 20%;
+    width: 80%;
 }
 
 #input-pwd {
-    width: 20%;
+    width: 80%;
+}
+
+.fo {
+    display: relative;
+    margin-top: 40%;
+    margin-left: 10%;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+body {
+    background-color: #f0f0f0;
 }

@@ -1,0 +1,14 @@
+.Signup {
+    display: aboslute;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 40px;
+
+}
+
+.both {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: bold;
+}
