@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
+import './Home.css';
+import TopBar from '../Components/TopBar';
+import Card from 'react-bootstrap/Card';
 
-export default function Home() { 
-   return (
-         <div>
-              <h1>Home</h1>
-              <Link to="/">Login</Link>
-              <br></br>
-              <Link to="/StartSession">Start Session</Link>
-         </div>
-   )
+export default function Home() {
+      return (
+            <>
+                  <TopBar />
+                  <h1>Feed</h1>
+            </>
+      )
 }

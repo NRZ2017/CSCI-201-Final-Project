@@ -1,23 +1,10 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import './Signup.css';
 
 export default function Signup() {
     return (
         <>
-        <Navbar bg="primary" data-bs-theme="dark" id="topBar">
-        <Container id = "container">
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link href="/">Login</Nav.Link>
-            <Nav.Link href="/session">Session</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
         <div className='Signup'>
             <Form className='sup'>
             <h1 id="topSign">Sign Up</h1>

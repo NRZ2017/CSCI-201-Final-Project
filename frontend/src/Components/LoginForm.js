@@ -15,10 +15,14 @@ export default function LoginForm() {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type='password' placeholder='Enter Password' />
             </Form.Group>
-            <Button variant='primary' type='submit'>
+            <Button variant='primary'>
                 START STUDYING
             </Button>
         </Form>
         </>
     )
 }
+
+// function verifyLogin() {
+//     console.log(document.getElementById('input-uname').value);
+// }
