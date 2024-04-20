@@ -29,11 +29,35 @@ export default function Signup() {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type='password' placeholder='Enter Password' />
             </Form.Group>
-            <Button variant='primary' type='submit'>
+            <Button variant='primary' onClick={verifySignup}>
                 SIGN UP
             </Button>
         </Form>
         </div>
         </>
     )
+}
+
+function verifySignup() {
+    var baseURL = window.location.origin + "/signup";
+    var url = new URL(baseURL);
+    var params = {
+        fname: document.getElementById("fname").value,
+        lname: document.getElementById("lname").value,
+        email: document.getElementById("email").value,
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value
+    };
+    url.search = new URLSearchParams(params).toString();
+    console.log(url);
+    fetch(URL)
+        .then(response => response.text())
+        .then(d => {
+            if(d === "Success") {
+                window.location.href = "/Home";
+            }
+            else {
+                alert("Account already in system. Please try again.");
+            }
+        })
 }
