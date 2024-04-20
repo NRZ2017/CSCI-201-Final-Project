@@ -9,12 +9,16 @@ function App() {
     <>
     <div className="both">
       <div>
-        <LoginForm className="lform" />
-        <div className='Signup'>
+        <div className='login'>
+          <LoginForm className="lform" />
+          <div className='Signup'>
                 New User? <Link to="/signup">Sign up!</Link>
+          </div>
         </div>
       </div>
-      <GuestJoin className="gform" />
+        <div className='Guest'>
+          <GuestJoin className="gform" />
+        </div>
     </div>
     </>
   );

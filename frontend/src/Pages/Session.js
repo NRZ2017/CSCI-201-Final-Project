@@ -15,17 +15,20 @@ function JoinScreen({ getMeetingAndToken }) {
       await getMeetingAndToken(meetingId);
     };
     return (
-      <div>
+      <div className="meetingID">
         <input
           type="text"
-          placeholder="Enter Meeting Id"
+          placeholder="Enter Meeting ID"
           onChange={(e) => {
             setMeetingId(e.target.value);
           }}
         />
         <button onClick={onClick}>Join</button>
+        <br></br>
         {" or "}
-        <button onClick={onClick}>Create Meeting</button>
+        <div className="createM">
+          <button onClick={onClick}>Create Meeting</button>
+        </div>
       </div>
     );
   }

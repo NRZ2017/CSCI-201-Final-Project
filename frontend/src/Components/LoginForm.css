@@ -8,12 +8,10 @@
 
 .fo {
     display: relative;
-    margin-top: 40%;
-    margin-left: 10%;
-    font-size: 40px;
+    font-size: 25px;
     font-weight: bold;
 }
 
 body {
-    background-color: #f0f0f0;
+    background-color: #ffffff;
 }

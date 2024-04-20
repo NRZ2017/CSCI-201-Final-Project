@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Timer from "./Timer";
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
+
 
 const CenteredDiv = styled.div`
     display: flex;
@@ -15,6 +17,12 @@ export default function CountdownTimer() {
     const [seconds, setSeconds] = useState(0);
     const [milliseconds, setMilliseconds] = useState(0);
     const [isRunning, setIsRunning] = useState(null);
+    //End of Time
+
+    const [showEndScreen, setShowEndScreen] = useState({
+        show: false,
+        message: "Timer done",
+    })
     useEffect(() => {
         let interval;
         if (isRunning) {
@@ -40,8 +48,16 @@ export default function CountdownTimer() {
 
             }, 10);
         }
+        if (hours === 0 && minutes === 0 && seconds === 0 && milliseconds === 0 && isRunning) {
+            setShowEndScreen({ show: true, message: "Timer done" });
+            setIsRunning(false); // Stop the timer after it's done
+        }
+        /* if (showEndScreen.show) {
+            // Redirect to new page when showEndScreen.show becomes true
+            history.push('/destination');
+        } */
         return () => clearInterval(interval);
-    }, [milliseconds, seconds, minutes, hours, isRunning]);
+    }, [milliseconds, seconds, minutes, hours, isRunning, showEndScreen.show]);
 
     function startTimer() {
         if (hours !== 0 || minutes !== 0 || seconds !== 0) {
@@ -63,7 +79,7 @@ export default function CountdownTimer() {
     return (
         <>
         <h1 className="title" style={{ textAlign: 'center', marginTop: '60px'}}>Set Session Time</h1>
-
+        {showEndScreen.show && <h1>{showEndScreen.message}</h1>}
         <Timer 
             seconds={seconds} 
             minutes={minutes} 

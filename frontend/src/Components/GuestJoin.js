@@ -8,10 +8,10 @@ export default function GuestJoin () {
         <>
             <Form className="gj">
                     <div id="inside">
-                    <div className="guestJoinText">Want to join session as guest? Join Session Now! </div>
-                    <Link to="/session"><strong>Click Here</strong></Link>
+                    <div className="guestJoinText">What to join session as a guest?</div>
+                    <Link to="/session" style={{ display: 'block', textAlign: 'center' }}><bold>Click Here</bold></Link>
                     </div>
-                </Form>
+            </Form>
             
         </>
         
