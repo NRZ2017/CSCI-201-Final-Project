@@ -1,10 +1,11 @@
 import TopBar from "../Components/TopBar"
-import './Profile.css';
+import './Profile.css'
 
 export default function Profile() {
     return (
         <>
-            <TopBar />
+            <TopBar></TopBar>
+            <h1>Profile</h1>
             <div className="logo">LOGO</div>
             <img className="profile-pic" src="profile-picture.png" alt="Profile Picture" />
             <div className="info">
