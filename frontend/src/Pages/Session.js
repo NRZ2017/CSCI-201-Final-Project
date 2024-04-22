@@ -15,6 +15,7 @@ function JoinScreen({ getMeetingAndToken }) {
       await getMeetingAndToken(meetingId);
     };
     return (
+      <>
       <div className="meetingID">
         <input
           type="text"
@@ -29,7 +30,12 @@ function JoinScreen({ getMeetingAndToken }) {
         <div className="createM">
           <button onClick={onClick}>Create Meeting</button>
         </div>
+        <br></br>
+        <div>
+        Display name: <input type="text" id="dName"/>
       </div>
+      </div>
+      </>
     );
   }
 
@@ -73,8 +79,7 @@ function JoinScreen({ getMeetingAndToken }) {
         <audio ref={micRef} autoPlay playsInline muted={isLocal} />
         {webcamOn && (
           <ReactPlayer
-            //
-            playsinline // extremely crucial prop
+            playsinline
             pip={false}
             light={false}
             controls={false}
@@ -130,7 +135,6 @@ function MeetingView(props) {
         {joined && joined == "JOINED" ? (
           <div>
             <Controls />
-            //For rendering all the participants in the meeting
             {[...participants.keys()].map((participantId) => (
               <ParticipantView
                 participantId={participantId}
@@ -168,7 +172,7 @@ function App() {
         meetingId,
         micEnabled: true,
         webcamEnabled: true,
-        name: "C.V. Raman",
+        name: getName(),
       }}
       token={authToken}
     >
@@ -177,6 +181,10 @@ function App() {
   ) : (
     <JoinScreen getMeetingAndToken={getMeetingAndToken} />
   );
+}
+
+function getName() {
+  return document.getElementById("dName").value;
 }
 
 export default App;
