@@ -1,0 +1,7 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/nick_zhao/Downloads/javax.servlet-api-4.0.1.jar",
+        "/Users/nick_zhao/Downloads/gson-2.10.1.jar"
+    ]
+}

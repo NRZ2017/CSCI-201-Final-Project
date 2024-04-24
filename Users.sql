@@ -7,18 +7,23 @@ USE UserInfo;
 -- Create Users table
 CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
     username VARCHAR(50) NOT NULL,
-    password VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    balance DECIMAL(10, 2) DEFAULT 0
+    password VARCHAR(100) NOT NULL
 );
 
--- Create Portfolio table
-CREATE TABLE Portfolio (
-    trade_id INT AUTO_INCREMENT PRIMARY KEY,
+-- Create Images table
+CREATE TABLE Images (
+    image_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
-    ticker VARCHAR(10) NOT NULL,
-    numStock INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
+    image_name VARCHAR(100) NOT NULL,
+    image_data LONGBLOB NOT NULL,
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
+CREATE TABLE Friends (
+    user_id INT NOT NULL,
+    friend_name VARCHAR(50) NOT NULL,
 );
