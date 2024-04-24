@@ -2,12 +2,13 @@ import "./Session.css";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   MeetingProvider,
-  MeetingConsumer,
   useMeeting,
   useParticipant,
 } from "@videosdk.live/react-sdk";
 import { authToken, createMeeting } from "./API";
 import ReactPlayer from "react-player";
+
+/* This is referenced from https://www.videosdk.live/blog/react-js-video-calling*/
 
 function JoinScreen({ getMeetingAndToken }) {
     const [meetingId, setMeetingId] = useState(null);
@@ -71,6 +72,7 @@ function JoinScreen({ getMeetingAndToken }) {
     }, [micStream, micOn]);
   
     return (
+      <>
       <div>
         <p>
           Participant: {displayName} | Webcam: {webcamOn ? "ON" : "OFF"} | Mic:{" "}
@@ -96,6 +98,12 @@ function JoinScreen({ getMeetingAndToken }) {
           />
         )}
       </div>
+      <div>
+        // insert button here
+          <button /*onClick = {downloadScreenShot}*/>Take Screentshot</button>
+
+      </div>
+      </>
     );
   }
 
