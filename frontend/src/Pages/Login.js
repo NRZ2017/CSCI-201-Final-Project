@@ -21,7 +21,7 @@ function App() {
         </div>
     </div>
 
-    document.addEventListener("DOMContentLoaded", function() {
+    {/* document.addEventListener("DOMContentLoaded", function() {
     // Add an event listener to the login form's submit button
     document.querySelector('.form-container #login-submit').addEventListener('click', (event) => {
         event.preventDefault();
@@ -60,7 +60,7 @@ function App() {
             console.error('Error:', error);
         });
     })
-});
+}); */}
     </>
   );
 }
