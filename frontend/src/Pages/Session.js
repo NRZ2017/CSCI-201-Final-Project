@@ -7,8 +7,6 @@ import {
 } from "@videosdk.live/react-sdk";
 import { authToken, createMeeting } from "./API";
 import ReactPlayer from "react-player";
-import { createRef } from "react";
-import {useScreenshot, createFileName} from "use-react-screenshot";
 
 /* This is referenced from https://www.videosdk.live/blog/react-js-video-calling*/
 
@@ -102,6 +100,8 @@ function JoinScreen({ getMeetingAndToken }) {
       </div>
       <div>
         // insert button here
+          <button /*onClick = {downloadScreenShot}*/>Take Screentshot</button>
+
       </div>
       </>
     );

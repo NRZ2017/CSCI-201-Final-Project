@@ -50,22 +50,20 @@ export default function Signup() {
 }
 
 function verifySignup() {
-    var baseURL = window.location.origin + "/Login";
+    var baseURL = window.location.origin + "/signup";
     var url = new URL(baseURL);
     var params = {
-        field: "signup",
         fname: document.getElementById("fname").value,
         lname: document.getElementById("lname").value,
         email: document.getElementById("email").value,
-        uname: document.getElementById("username").value,
-        pass: document.getElementById("password").value
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value
     };
     url.search = new URLSearchParams(params).toString();
     console.log(url);
-    fetch(url)
+    fetch(URL)
         .then(response => response.text())
         .then(d => {
-            console.log(d);
             if(d === "Success") {
                 window.location.href = "/Home";
             }
