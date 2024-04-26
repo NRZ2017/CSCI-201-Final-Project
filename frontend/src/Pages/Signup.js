@@ -8,6 +8,12 @@ import './Signup.css';
 export default function Signup() {
     return (
         <>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet" />
+
+
         <Navbar bg="primary" data-bs-theme="dark" id="topBar">
         <Container id = "container">
           <Navbar.Brand>Navigation</Navbar.Brand>
@@ -16,6 +22,7 @@ export default function Signup() {
           </Nav>
         </Container>
       </Navbar>
+
         <div className='Signup'>
             <Form className='sup'>
             <h1 id="topSign">Sign Up</h1>
