@@ -6,7 +6,7 @@ export default function TopBar() {
         <div>
         <Navbar bg="primary" data-bs-theme="dark" id="topBar">
         <Container id = "container">
-          <Navbar.Brand href="#home">Navigation</Navbar.Brand>
+          <Navbar.Brand>Navigation</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/home">Home</Nav.Link>
             <Nav.Link href="/friends">Friends</Nav.Link>
