@@ -1,7 +1,14 @@
+/* Use Lexend font for all elements */
+body {
+    font-family: 'Lexend', sans-serif;
+}
+
+/* Center-align titles and adjust padding */
 .login {
     margin: auto;
     width: 50%;
-    padding-top:140px;
+    padding-top: 140px;
+    text-align: center; /* Center-align title */
 }
 
 .Signup {
@@ -13,9 +20,12 @@
     padding-top: 40px;
     margin: auto;
     width: 50%;
-    text-align: center;
+    text-align: center; /* Center-align title */
 }
+
 .both {
     margin: auto;
     width: 50%;
 }
+
+
