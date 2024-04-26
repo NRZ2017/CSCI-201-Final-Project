@@ -1,5 +1,3 @@
-package lesliegarcia_CSCI_FinalProject;
-
 public class User {
 	String username;
 	String password;

@@ -1,0 +1,21 @@
+.login {
+    margin: auto;
+    width: 50%;
+    padding-top:140px;
+}
+
+.Signup {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.Guest {
+    padding-top: 40px;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+.both {
+    margin: auto;
+    width: 50%;
+}
