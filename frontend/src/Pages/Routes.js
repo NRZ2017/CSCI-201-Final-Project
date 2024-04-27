@@ -6,6 +6,7 @@ import SignUp from './Signup';
 import Session from './Session';
 import Friends from './Friends';
 import Profile from './Profile';
+import CountdownTimer from '../Components/CountdownTimer';
 
 export default function AppRoutes() {
     return (
@@ -17,7 +18,7 @@ export default function AppRoutes() {
             <Route path="/session" element={<Session />} />
             <Route path='/friends' element={<Friends />} />
             <Route path='/profile' element={<Profile />} />
-
+            <Route path='/CountdownTimer' element={<CountdownTimer />} />
         </Routes>
     )
 }

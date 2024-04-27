@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Timer from "./Timer";
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const CenteredDiv = styled.div`
@@ -11,6 +11,10 @@ const CenteredDiv = styled.div`
     margin-right: 20%;
 `;
 
+localStorage.setItem('seconds', 0);
+localStorage.setItem('minutes', 0);
+localStorage.setItem('hours', 0);
+
 export default function CountdownTimer() {
     const [hours,setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
@@ -19,61 +23,42 @@ export default function CountdownTimer() {
     const [isRunning, setIsRunning] = useState(null);
     //End of Time
 
+    const navigate = useNavigate(); // Initialize the navigate function
+
     const [showEndScreen, setShowEndScreen] = useState({
         show: false,
         message: "Timer done",
     })
-    useEffect(() => {
-        let interval;
-        if (isRunning) {
-            interval = setInterval (()=> {
-                if (milliseconds > 0) {
-                    setMilliseconds((milliseconds) => milliseconds - 1);
-                }
-                else if (seconds > 0) {
-                    setSeconds((seconds) => seconds - 1);
-                    setMilliseconds(99);
-                }
-                else if (minutes > 0) {
-                    setMinutes((minutes) => minutes - 1);
-                    setSeconds(59);
-                    setMilliseconds(99);
-                }
-                else if (hours > 0) {
-                    setHours((hours) => hours - 1);
-                    setMinutes(59);
-                    setSeconds(59);
-                    setMilliseconds(99);
-                }
-
-            }, 10);
-        }
-        if (hours === 0 && minutes === 0 && seconds === 0 && milliseconds === 0 && isRunning) {
-            setShowEndScreen({ show: true, message: "Timer done" });
-            setIsRunning(false); // Stop the timer after it's done
-        }
-        /* if (showEndScreen.show) {
-            // Redirect to new page when showEndScreen.show becomes true
-            history.push('/destination');
-        } */
-        return () => clearInterval(interval);
-    }, [milliseconds, seconds, minutes, hours, isRunning, showEndScreen.show]);
 
     function startTimer() {
+        const hours = parseInt(localStorage.getItem('hours'));
+        const minutes = parseInt(localStorage.getItem('minutes'));
+        const seconds = parseInt(localStorage.getItem('seconds'));
         if (hours !== 0 || minutes !== 0 || seconds !== 0) {
             setIsRunning(true);
+            localStorage.setItem('isRunning', 'true');
+            navigate("/session"); // Redirect to "/session" route
         }
         else {
             window.alert("set session time!");
         }
     }
     const changeSeconds=(e)=> {
+        const newValue = e.target.value;
+        localStorage.setItem('seconds', newValue);
+        console.log(newValue);
         setSeconds(e.target.value);
     }
     const changeMinutes=(e)=> {
+        const newValue = e.target.value;
+        localStorage.setItem('minutes', newValue);
+        console.log(newValue);
         setMinutes(e.target.value);
     }
     const changeHours=(e)=> {
+        const newValue = e.target.value;
+        localStorage.setItem('hours', newValue);
+        console.log(newValue);
         setHours(e.target.value);
     }
     return (
@@ -91,10 +76,10 @@ export default function CountdownTimer() {
 
         <br />
         <CenteredDiv>
-        {!isRunning && (<button onClick={startTimer}>Start Session
-        </button>)} {
-
-        }
+        {!isRunning && (
+            // Render the button only if isRunning is false
+            <button onClick={startTimer}>Start Session</button>
+        )}
         </CenteredDiv>
         </>
     );

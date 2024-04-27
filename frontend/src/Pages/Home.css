@@ -1,4 +1,20 @@
 
 #container {
-    margin-left: 0;
+    margin-top: 0;
+}
+#wrapper {
+    background-color:#DEDEDE;
+    padding: 25px 15px;
+}
+#home_container {
+    margin: 5%;
+    height: 600px;
+    align-items: center;
+    padding-top: 6%;
+    background-color: #54bed8;
+}
+#mainimg {
+    width: 45%;
+    height: 250px;
+    border: 6px solid #1d55849a;
 }

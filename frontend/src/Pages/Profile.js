@@ -17,8 +17,7 @@ export default function Profile() {
                         <p>FIRST NAME: Cinna</p>
                         <p>LAST NAME: Moroll</p>
                         <p>EMAIL: ***oll@gmail.com</p>
-                        <p>PASSWORD: ************</p>
-                        <button class="edit-btn">Edit</button>
+                        <p>PASSWORD: ***********e*</p>
                     </div>
                 </div>
                 <div id="bottom">

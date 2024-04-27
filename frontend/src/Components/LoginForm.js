@@ -36,7 +36,7 @@ function verifyLogin() {
         .then(response => response.text())
         .then(d => {
             if(d === "Success") {
-                window.location.href = "/Home";
+                window.location.href = "/home";
             }
             else {
                 alert("Invalid username or password. Please try again.");

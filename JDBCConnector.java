@@ -28,7 +28,7 @@ public static int registerUser(String username, String password, String email) {
 	
 	try {
         // will probably update with own machine
-		conn = DriverManager.getConnection("jdbc:mysql://localhost/UserInfo?user=root&password=Washform14!");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost/UserInfo?user=root&password=MySQL123");
 		st = conn.createStatement();
 		rs = st.executeQuery("SELECT * FROM users WHERE username='" + username + "'");
 		if(!rs.next()) { // no user with that username
@@ -96,7 +96,7 @@ public static int authenticateUser(String username, String password) {
     System.out.println("here 1");
 
     try {
-        conn = DriverManager.getConnection("jdbc:mysql://localhost/UserInfo?user=root&password=Washform14!");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost/UserInfo?user=root&password=MySQL123");
         System.out.println("got connection");
         String query = "SELECT user_id FROM users WHERE username = ? AND password = ?";
         pstmt = conn.prepareStatement(query);
@@ -131,4 +131,4 @@ public static int authenticateUser(String username, String password) {
     USER_ID = userID;
     return userID;
 }
-
+}
