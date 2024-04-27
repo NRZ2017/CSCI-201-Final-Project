@@ -8,6 +8,12 @@ import './Signup.css';
 export default function Signup() {
     return (
         <>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet" />
+
+
         <Navbar bg="primary" data-bs-theme="dark" id="topBar">
         <Container id = "container">
           <Navbar.Brand>Navigation</Navbar.Brand>
@@ -16,6 +22,7 @@ export default function Signup() {
           </Nav>
         </Container>
       </Navbar>
+
         <div className='Signup'>
             <Form className='sup'>
             <h1 id="topSign">Sign Up</h1>
@@ -50,22 +57,20 @@ export default function Signup() {
 }
 
 function verifySignup() {
-    var baseURL = window.location.origin + "/Login";
+    var baseURL = window.location.origin + "/signup";
     var url = new URL(baseURL);
     var params = {
-        field: "signup",
         fname: document.getElementById("fname").value,
         lname: document.getElementById("lname").value,
         email: document.getElementById("email").value,
-        uname: document.getElementById("username").value,
-        pass: document.getElementById("password").value
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value
     };
     url.search = new URLSearchParams(params).toString();
     console.log(url);
-    fetch(url)
+    fetch(URL)
         .then(response => response.text())
         .then(d => {
-            console.log(d);
             if(d === "Success") {
                 window.location.href = "/Home";
             }
