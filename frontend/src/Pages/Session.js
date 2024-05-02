@@ -21,7 +21,6 @@ function useTimeTracker() {
 }
 
 function JoinScreen({ getMeetingAndToken }) {
-    useTimeTracker();
     const [meetingId, setMeetingId] = useState(null);
     const onClick = async () => {
       await getMeetingAndToken(meetingId);
@@ -123,6 +122,7 @@ function Controls() {
   }
 
 function MeetingView(props) {
+    useTimeTracker();
     const [joined, setJoined] = useState(null);
     //Get the method which will be used to join the meeting.
     //We will also get the participants list to display all participants
@@ -147,7 +147,6 @@ function MeetingView(props) {
         {joined && joined == "JOINED" ? (
           <div>
             <Controls />
-            //For rendering all the participants in the meeting
             {[...participants.keys()].map((participantId) => (
               <ParticipantView
                 participantId={participantId}
