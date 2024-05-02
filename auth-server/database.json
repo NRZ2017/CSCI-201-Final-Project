@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "email": "leslie@mail.com",
+      "password": "$2b$10$qLQVI3buXBZj03GIVFXYWexaB2QBtrM/YzNuAPoNJz.r2RpuK8hCS"
+    },
+    {
+      "email": "test@mail.com",
+      "password": "$2b$10$Y9GRBgOKLeS8A8rVFXJJE.S6.uAouJ9zRC90j/ho11Zjb0XS1TB7G"
+    },
+    {
+      "email": "jad@gmail.com",
+      "password": "$2b$10$k/n6CdhVqqe6YomR4gBJAOddVPBkZSYoxg1.pSqRziEZ1SEmgm5ym"
+    },
+    {
+      "email": "ruizhez@usc.edu",
+      "password": "$2b$10$lgfazfhgGlLyLplHvLWcROhkBgLxyIxss6JkRyWs4gV..YeqAcw9K"
+    }
+  ]
+}

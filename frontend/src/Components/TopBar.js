@@ -8,7 +8,7 @@ export default function TopBar() {
         <Container id = "container">
           <Navbar.Brand>Navigation</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/friends">Friends</Nav.Link>
             <Nav.Link href="/profile">Profile</Nav.Link>
             <Nav.Link href="/StartSession">Start Session</Nav.Link>

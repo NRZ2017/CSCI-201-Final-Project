@@ -1,109 +1,124 @@
-import './Login.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import LoginForm from '../Components/LoginForm';
-import { Link } from 'react-router-dom';
-import GuestJoin from '../Components/GuestJoin';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function App() {
-  const handleLogin = async (event) => {
-    event.preventDefault();
-    const username = event.target.username.value;
-    const password = event.target.password.value;
+const Login = (props) => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [emailError, setEmailError] = useState("")
+    const [passwordError, setPasswordError] = useState("")
+    
+    const navigate = useNavigate();
+        
+    const onButtonClick = () => {
 
-    // Send a POST request to LoginServlet
-    try {
-      const response = await fetch('/LoginServlet', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-      });
+        // Set initial error values to empty
+        setEmailError("")
+        setPasswordError("")
 
-      if (!response.ok) {
-        throw new Error('Login failed');
-      }
+        // Check if the user has entered both fields correctly
+        if ("" === email) {
+            setEmailError("Please enter your email")
+            return
+        }
 
-      const data = await response.json();
-      // Handle successful login, for example, redirect the user
-      if (data > 0) {
-        console.log('Login successful!');
-        // Redirect the user to index.html
-        window.location.href = 'index.html?loggedIn=true';
-      } else {
-        console.error('Login failed: Invalid username or password');
-        // Display an error message to the user
-        const errorMessage = document.getElementById('loginErrorMessage');
-        errorMessage.textContent = 'Login failed: Invalid username or password';
-        errorMessage.style.display = 'block';
-      }
-    } catch (error) {
-      console.error('Error:', error);
+        if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+            setEmailError("Please enter a valid email")
+            return
+        }
+
+        if ("" === password) {
+            setPasswordError("Please enter a password")
+            return
+        }
+
+        if (password.length < 7) {
+            setPasswordError("The password must be 8 characters or longer")
+            return
+        }
+
+        // Check if email has an account associated with it
+        checkAccountExists(accountExists => {
+            // If yes, log in 
+            if (accountExists)
+                logIn()
+            else
+            // Else, ask user if they want to create a new account and if yes, then log in
+                if (window.confirm("An account does not exist with this email address: " + email + ". Do you want to create a new account?")) {
+                    logIn()
+                }
+        })        
+  
+
     }
-  };
 
-  return (
-    <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet" />
-      <div className="both">
-        <div>
-          <div className='login'>
-            <LoginForm onSubmit={handleLogin} className="lform" />
-            <div className='Signup'>
-              New User? <Link to="/signup">Sign up!</Link>
-            </div>
-          </div>
-        </div>
-        <div className='Guest'>
-          <GuestJoin className="gform" />
-        </div>
-
-      </div>
-
-    document.addEventListener("DOMContentLoaded", function() {
-    // Add an event listener to the login form's submit button
-    document.querySelector('.form-container #login-submit').addEventListener('click', (event) => {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        
-        console.log(username);
-        console.log(password);
-        
-        // Send a POST request to LoginServlet
-        fetch('LoginServlet', {
-            method: 'POST',
+    // Call the server API to check if the given email ID already exists
+    const checkAccountExists = (callback) => {
+        fetch("http://localhost:3080/check-account", {
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username, password })
+              },
+            body: JSON.stringify({email})
         })
-        .then(response => response.json())
-        .then(data => {
-            // Handle the response from the servlet
-            console.log(data);
-            if (data > 0) {
-                console.log('Login successful!');
-                // Redirect the user to index.html
-                window.location.href = 'index.html?loggedIn=true';
+        .then(r => r.json())
+        .then(r => {
+            callback(r?.userExists)
+        })
+    }
+
+    // Log in a user using email and password
+    const logIn = () => {
+        fetch("http://localhost:3080/auth", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({email, password})
+        })
+        .then(r => r.json())
+        .then(r => {
+            if ('success' === r.message) {
+                localStorage.setItem("user", JSON.stringify({email, token: r.token}))
+                props.setLoggedIn(true)
+                props.setEmail(email)
+                navigate("/")
             } else {
-                console.error('Login failed: Invalid username or password');
-                // Display an error message to the user
-                const errorMessage = document.getElementById('loginErrorMessage');
-                errorMessage.textContent = 'Login failed: Invalid username or password';
-                errorMessage.style.display = 'block';
+                window.alert("Wrong email or password")
             }
         })
-        .catch(error => {
-            // Handle any errors
-            console.error('Error:', error);
-        });
-    })
-});
-    </>
-  );
+    }
+
+    return <div className={"mainContainer"}>
+        <div className={"titleContainer"}>
+            <div>Login</div>
+        </div>
+        <br />
+        <div className={"inputContainer"}>
+            <input
+                value={email}
+                placeholder="Enter your email here"
+                onChange={ev => setEmail(ev.target.value)}
+                className={"inputBox"} />
+            <label className="errorLabel">{emailError}</label>
+        </div>
+        <br />
+        <div className={"inputContainer"}>
+            <input
+                value={password}
+                placeholder="Enter your password here"
+                onChange={ev => setPassword(ev.target.value)}
+                className={"inputBox"} />
+            <label className="errorLabel">{passwordError}</label>
+        </div>
+        <br />
+        <div className={"inputContainer"}>
+            <input
+                className={"inputButton"}
+                type="button"
+                onClick={onButtonClick}
+                value={"Log in"} />
+        </div>
+    </div>
 }
 
-export default App;
+export default Login
