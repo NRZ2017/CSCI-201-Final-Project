@@ -41,6 +41,11 @@ function JoinScreen({ getMeetingAndToken }) {
         <div className="createM">
           <button onClick={onClick}>Create Meeting</button>
         </div>
+        <br></br>
+        <br></br>
+        <div >
+          Display name<input type="text" id="name" />
+        </div>
       </div>
     );
   }
@@ -180,7 +185,7 @@ function App() {
         meetingId,
         micEnabled: true,
         webcamEnabled: true,
-        name: "C.V. Raman",
+        name: getName(),
       }}
       token={authToken}
     >
@@ -189,6 +194,10 @@ function App() {
   ) : (
     <JoinScreen getMeetingAndToken={getMeetingAndToken} />
   );
+}
+
+function getName() {
+  return document.getElementById("name").value;
 }
 
 export default App;
