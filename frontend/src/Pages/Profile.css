@@ -8,6 +8,7 @@ margin-bottom: 20px;
 width: 200px;
 height: 200px;
 border-radius: 50%;
+border: 2px solid black;
 }
 .container {
 margin-top: 20px;
@@ -46,10 +47,17 @@ border: 2px solid black;
 cursor: pointer;
 }
 #bio {
-background-color: #fbf6e3;
-border: 2px solid black;
-padding: 1% 0;
-height: 150px;
-margin: auto;
-text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid black;
+  padding: 1% 0;
+  height: 150px;
+  margin: auto;
+  text-align: center;
+}
+.demo-wrapper {
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid black;
+  width: 230px;
 }

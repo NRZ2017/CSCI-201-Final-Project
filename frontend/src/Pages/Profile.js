@@ -1,6 +1,10 @@
+import React, { useState } from 'react';
 import './Profile.css';
 import img1 from './profile-picture.png';
 import TopBar from '../Components/TopBar';
+import { StyledEngineProvider } from '@mui/material/styles';
+import Demo from './Demo';
+
 
 export default function Profile() {
     return (
@@ -21,14 +25,24 @@ export default function Profile() {
                         <p>PASSWORD: ***********e*</p>
                     </div>
                 </div>
+                <div id="demo-container">
+                    <StyledEngineProvider injectFirst> 
+                        <p>BIRTHDAY:</p>
+                        <div className="demo-wrapper">
+                            <Demo />
+                        </div>
+                    </StyledEngineProvider>
+                </div>
                 <div id="bottom">
-                    <p>BIRTHDAY: <input type="text" value="03/06" /></p>
                     <p>BIO:</p>
                     <div id="bio">
                         <p>I was born on a cloud in the sky, I'm shy but I'm friendly and always willing to make new friends</p>
                     </div>
                 </div>
             </div>
+ 
         </>
     )
 }
+
+

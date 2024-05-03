@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "react-kawaii": "^0.18.0"
+  },
+  "dependencies": {
+    "@mantine/dates": "^7.9.0"
   }
 }
