@@ -4,6 +4,8 @@ import img1 from './profile-picture.png';
 import TopBar from '../Components/TopBar';
 import { StyledEngineProvider } from '@mui/material/styles';
 import Demo from './Demo';
+import Icon from './Icon';
+import TxtField from './TxtField';
 
 
 export default function Profile() {
@@ -19,8 +21,8 @@ export default function Profile() {
                         <p>(put username here if we want)</p>
                     </div>
                     <div id="topright">
-                        <p>FIRST NAME: Cinna</p>
-                        <p>LAST NAME: Moroll</p>
+                        <div><Icon/></div>
+                        <div><TxtField/></div> <br></br>
                         <p>EMAIL: ***oll@gmail.com</p>
                         <p>PASSWORD: ***********e*</p>
                     </div>
