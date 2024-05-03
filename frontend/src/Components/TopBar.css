@@ -1,42 +1,43 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 .nav-bar {
-    list-style-type: none;
-    padding: 0;
-    overflow: hidden;
-    background-color: #f1f1f1;
-    border-radius: 20px;
-    border: solid 2px black;
-    height: 50px;
-    position: absolute;
-    top: 30px;
-    width: 480px;
-    left: 500px; /* change according to screen size */
-  }
-  
-  .nav-bar li {
-    float: left;
-    position: relative;
-    height: 100%;
-  }
-  
-  .nav-bar li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    height: 100%;
-    width: 100%;
-  }
-  
-  .nav-bar li:hover {
-    background-color: black;
-    border-radius: 18px;
-    border: solid 1.5px white;
-  }
-  
-  .nav-bar li:hover a {
-    color: white;
-  }
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  border: solid 2px black;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  width: 448px;
+  left: 480px; /* change according to screen size */
+}
+
+.nav-bar li {
+  float: left;
+  position: relative;
+  height: 100%;
+}
+
+.nav-bar li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+}
+
+.nav-bar li:hover {
+  background-color: black;
+  border-radius: 18px;
+  border: solid 1.5px white;
+}
+
+.nav-bar li:hover a {
+  color: white;
+}
+

@@ -5,10 +5,10 @@ const NavBar = () => {
   return (
     <nav>
       <ul className="nav-bar">
-        <li><a href="/">Home</a></li>
-        <li><a href="/friends">Friends</a></li>
-        <li><a href="/profile">Profile</a></li>
-        <li><a href="/StartSession">StartSession</a></li>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/friends">FRIENDS</a></li>
+        <li><a href="/profile">PROFILE</a></li>
+        <li><a href="/StartSession">START SESSION</a></li>
       </ul>
     </nav>
   );

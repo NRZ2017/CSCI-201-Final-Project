@@ -39,7 +39,7 @@ const Home = (props) => {
             {(!loggedIn ? <div><GuestJoin></GuestJoin></div> : <div/>)}
         </div>
         <div className="backpackContainer">
-            <Backpack size={300} mood="blissful" color="#FFD882" />
+            <Backpack size={300} mood="blissful" color="#ffbaaf" />
         </div>
 
 

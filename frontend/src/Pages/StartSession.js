@@ -6,6 +6,7 @@ function App() {
       return (
             <>
             <TopBar></TopBar>
+            <br></br> <br></br>
             <div className="App">
                   <CountdownTimer />
             </div>

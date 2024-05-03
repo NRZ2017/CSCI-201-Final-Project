@@ -1,3 +1,8 @@
+body {
+    background-image: url("/Users/lesliegarcia/Desktop/CS201/FP/CSCI-201-Final-Project/frontend/thumbnail.png");
+    background-size: "cover";
+  }
+
 .meetingID {
     padding-top: 250px;
     margin: auto;

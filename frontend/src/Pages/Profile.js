@@ -6,6 +6,7 @@ export default function Profile() {
     return (
         <>
             <TopBar></TopBar>
+            <br></br> <br></br>
             <div class="logo">LOGO</div>
             <div class="container">
                 <div id="top">
