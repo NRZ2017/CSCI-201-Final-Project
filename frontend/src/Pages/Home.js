@@ -2,6 +2,7 @@ import React from "react"
 import { useNavigate } from "react-router-dom";
 import { Backpack } from 'react-kawaii'
 import TopBar from "../Components/TopBar";
+import GuestJoin from "../Components/GuestJoin";
 
 
 const Home = (props) => {
@@ -19,6 +20,7 @@ const Home = (props) => {
 
 
     return <div className="mainContainer">
+       {loggedIn && <TopBar />}
         <div className={"titleContainer"}>
             <div>Welcome!</div>
         </div>
@@ -31,9 +33,10 @@ const Home = (props) => {
                 type="button"
                 onClick={onButtonClick}
                 value={loggedIn ? "Log out" : "Log in"} />
-            {(loggedIn ? <><TopBar></TopBar> <div>
+            {(loggedIn ? <><div>
                 Your email address is {email}
             </div></> : <div/>)}
+            {(!loggedIn ? <div><GuestJoin></GuestJoin></div> : <div/>)}
         </div>
         <div className="backpackContainer">
             <Backpack size={300} mood="blissful" color="#FFD882" />

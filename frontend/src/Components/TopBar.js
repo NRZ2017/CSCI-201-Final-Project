@@ -1,21 +1,17 @@
-import './TopBar.css'
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import React from 'react';
+import './TopBar.css';
 
-export default function TopBar() {
-    return (
-        <div>
-        <Navbar bg="primary" data-bs-theme="dark" id="topBar">
-        <Container id = "container">
-          <Navbar.Brand>Navigation</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/friends">Friends</Nav.Link>
-            <Nav.Link href="/profile">Profile</Nav.Link>
-            <Nav.Link href="/StartSession">Start Session</Nav.Link>
-            <Nav.Link href="/session">Join Session</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-        </div>
-    )
-}
+const NavBar = () => {
+  return (
+    <nav>
+      <ul className="nav-bar">
+        <li><a href="/">Home</a></li>
+        <li><a href="/friends">Friends</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/StartSession">StartSession</a></li>
+      </ul>
+    </nav>
+  );
+};
+
+export default NavBar;

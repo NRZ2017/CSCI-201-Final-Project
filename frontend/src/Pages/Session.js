@@ -8,7 +8,9 @@ import {
 } from "@videosdk.live/react-sdk";
 import { authToken, createMeeting } from "./API";
 import ReactPlayer from "react-player";
+import TopBar from '../Components/TopBar';
 
+localStorage.setItem("alerted", "false");
 function useTimeTracker() {
   const hours = parseInt(localStorage.getItem('hours'));
   const minutes = parseInt(localStorage.getItem('minutes'));
@@ -16,8 +18,12 @@ function useTimeTracker() {
   const totalTime = (hours * 3600000) + (minutes * 60000) + (seconds * 1000);
   console.log("setting time for " + totalTime);
   setTimeout(function() {
-    window.alert("Meeting is over!");
-  }, totalTime); // Delay of 2000 milliseconds (2 seconds)
+    var alerted = localStorage.getItem("alerted");
+    if (alerted == "false" && seconds != 0) { // checks if alert has already been sent
+      window.alert("Meeting is over!");
+      localStorage.setItem("alerted", "true");
+    }
+  }, totalTime);
 }
 
 function JoinScreen({ getMeetingAndToken }) {
@@ -26,6 +32,8 @@ function JoinScreen({ getMeetingAndToken }) {
       await getMeetingAndToken(meetingId);
     };
     return (
+      <>
+      <TopBar></TopBar>
       <div className="meetingID">
         <input
           type="text"
@@ -46,6 +54,7 @@ function JoinScreen({ getMeetingAndToken }) {
           Display name<input type="text" id="name" />
         </div>
       </div>
+      </>
     );
   }
 

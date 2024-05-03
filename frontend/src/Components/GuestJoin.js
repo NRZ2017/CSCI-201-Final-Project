@@ -9,7 +9,7 @@ export default function GuestJoin () {
         <Form className="gj">
                 <div id="inside">
                 <div className="guestJoinText">What to join session as a guest?</div>
-                <Link to="/CountdownTimer" style={{ display: 'block', textAlign: 'center' }}><bold>Click Here</bold></Link>
+                <Link to="/session" style={{ display: 'block', textAlign: 'center' }}><bold id='click'>Click Here</bold></Link>
                 </div>
         </Form>
         
